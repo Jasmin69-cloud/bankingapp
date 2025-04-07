@@ -1,0 +1,52 @@
+<nav>
+  <a href="deposit.html">Deposit</a> |
+  <a href="converter.html">Currency Converter</a> |
+  <a href="details.html">Personal Details</a>
+</nav>
+<hr />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Currency Converter</title>
+</head>
+<body>
+  <nav>
+    <a href="deposit.html">Deposit</a> |
+    <a href="converter.html">Currency Converter</a> |
+    <a href="details.html">Personal Details</a>
+  </nav>
+  <hr />
+
+  <h2>Currency Converter</h2>
+  <input type="number" id="amount" placeholder="Amount in USD" />
+  <select id="currency">
+    <option value="eur">EUR</option>
+    <option value="gbp">GBP</option>
+    <option value="inr">INR</option>
+  </select>
+  <button onclick="convertCurrency()">Convert</button>
+  <div id="conversionResult" style="margin-top: 10px;"></div>
+
+  <script>
+    function convertCurrency() {
+      const amount = parseFloat(document.getElementById("amount").value);
+      const currency = document.getElementById("currency").value;
+      let rate = 1;
+
+      switch (currency) {
+        case "eur": rate = 0.91; break;
+        case "gbp": rate = 0.78; break;
+        case "inr": rate = 83.05; break;
+      }
+
+      const result = document.getElementById("conversionResult");
+      if (amount > 0) {
+        result.innerText = `${amount} USD = ${(amount * rate).toFixed(2)} ${currency.toUpperCase()}`;
+      } else {
+        result.innerText = "Enter a valid amount.";
+      }
+    }
+  </script>
+</body>
+</html>
