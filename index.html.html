@@ -1,0 +1,39 @@
+<nav>
+  <a href="deposit.html">Deposit</a> |
+  <a href="converter.html">Currency Converter</a> |
+  <a href="details.html">Personal Details</a>
+</nav>
+<hr />
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deposit Money</title>
+</head>
+<body>
+  <nav>
+    <a href="deposit.html">Deposit</a> |
+    <a href="converter.html">Currency Converter</a> |
+    <a href="details.html">Personal Details</a>
+  </nav>
+  <hr />
+
+  <h2>Deposit Money</h2>
+  <input type="number" id="depositAmount" placeholder="Enter amount to deposit" />
+  <button onclick="depositMoney()">Deposit</button>
+  <div id="depositResult" style="margin-top: 10px;"></div>
+
+  <script>
+    function depositMoney() {
+      const amount = document.getElementById("depositAmount").value;
+      const result = document.getElementById("depositResult");
+      if (amount > 0) {
+        result.innerText = `You have deposited $${amount}`;
+      } else {
+        result.innerText = "Please enter a valid amount.";
+      }
+    }
+  </script>
+</body>
+</html>
